@@ -14,8 +14,8 @@ class Item < ActiveRecord::Base
   end
 
   def self.find_by_id(cart)
-    cart.map do |id, quantity|
-      self.find(id)
+    cart.map do |id, _quantity|
+      find(id)
     end
   end
 
