@@ -12,6 +12,3 @@ class CartController < ApplicationController
     @items = Item.find_by_id(@cart)
   end
 end
-
-# cart = session[:cart] || {}
-# session[:cart] = @item
