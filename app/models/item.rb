@@ -6,10 +6,21 @@ class Item < ActiveRecord::Base
   validates :price, presence: true
   validates :description, presence: true
   validates :image_path, presence: true
-            
+
 
   def self.search(search)
     query = "%#{search}%"
     self.where("title ILIKE ? or description ILIKE ?", query, query)
+  end
+
+  def self.find_by_id(cart)
+    cart.map do |id, quantity|
+      self.find(id)
+    end
+  end
+
+  def weight
+    #placeholder
+    0
   end
 end
