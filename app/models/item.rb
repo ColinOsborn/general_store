@@ -23,4 +23,8 @@ class Item < ActiveRecord::Base
     #placeholder
     0
   end
+
+  def self.featured_home_items(quantity)
+    Item.order("RANDOM()").limit(quantity)
+  end
 end
