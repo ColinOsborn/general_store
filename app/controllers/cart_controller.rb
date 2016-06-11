@@ -8,12 +8,24 @@ class CartController < ApplicationController
   end
 
   def show
-    @cart = session[:cart]
     if @cart.nil?
       flash[:no_items] = "Your cart is currently empty"
     else
-      @item_ids = @cart.keys
+      @item_ids = @cart.contents.keys
       @items = Item.where(id: @item_ids)
     end
+  end
+
+  def update
+    # byebug
+    item_id = params[:id]
+    quantity = params[:quantity]
+    @cart.update_quantity(item_id, quantity)
+    @cart = session[:cart]
+    redirect_to '/cart'
+  end
+
+  def change_quantity
+    session[:cart][item_id] = params[:id][:quantity]
   end
 end

@@ -12,4 +12,8 @@ class Cart
   def total
     contents.values.sum
   end
+
+  def update_quantity(item_id, quantity)
+    contents[item_id.to_s] = quantity
+  end
 end

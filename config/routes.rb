@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :cart, only: [:create]
   get "/cart", to: "cart#show"
   post "/cart", to: "cart#create"
+  patch "/cart", to: "cart#update"
+
 
   get '/search', to: 'search#index'
 
