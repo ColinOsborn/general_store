@@ -17,6 +17,9 @@
       Weight:<%= item.weight %>
       <br>
       Quantity: <%= @cart.contents[item.id.to_s] %>
+
+      Subtotal: <%= subtotal_price = item.price * cart.contents[item.id.to_s] %>
+
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quantity
           <span class="caret"></span></button>
