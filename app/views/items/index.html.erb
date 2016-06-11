@@ -23,9 +23,9 @@
         <!-- </a> -->
       </div>
       <div class="media-body .pull-right">
-        <h3 class="media-heading"><%= item.title %></h3>
-        <div><%= item.description %></div>
-        <div>$<%= item.price %></div>
+        <h3 id="title" class="media-heading"><%=link_to item.title, item_path(item) %></h3>
+        <div id="description"><%= item.description %></div>
+        <div id="price"><strong>$<%= item.price %></strong></div>
       </div>
     </div>
     <% end %>
