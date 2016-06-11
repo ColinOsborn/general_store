@@ -99,8 +99,6 @@ items = [
           weight: 2
         }]
 
-
-
   categories.each do |attribute|
     category = Category.create(attribute)
     puts "#{category.title} successfully created!"

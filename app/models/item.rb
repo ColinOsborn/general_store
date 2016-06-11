@@ -12,12 +12,6 @@ class Item < ActiveRecord::Base
     query = "%#{search}%"
     self.where("title ILIKE ? or description ILIKE ?", query, query)
   end
-  #
-  # def self.find_by_id(cart)
-  #   cart.map do |id, _quantity|
-  #     find(id)
-  #   end
-  # end
 
   def self.featured_home_items(quantity)
     Item.order("RANDOM()").limit(quantity)
