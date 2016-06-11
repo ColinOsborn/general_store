@@ -1,11 +1,29 @@
-Cart items:
-<% @items.each do |item| %>
-  <%= item.title %>
-  <%= item.description %>
-  <%= item.price %>
-  <%= item.weight %>
-  Price Total: <%= item.price %>
-  Weight Total: <%= item.weight %>
+<% if @cart.nil? %>
+  No current items
+  <% else %>
 
+    Cart items:
+    <br>
+    <% @items.each do |item| %>
+      Title: <%= item.title %>
+      <br>
+      Description: <%= item.description %>
+      <br>
+      Price: <%= item.price %>
+      <br>
+      Weight:<%= item.weight %>
+      <br>
+    <% end %>
+
+    <% total_price = @items.reduce(0) do |sum, item| %>
+      <% sum + item.price %>
+    <% end %>
+    <% total_weight = @items.reduce(0) do |sum, item| %>
+      <% sum + item.weight %>
+    <% end %>
+      <br>
+      Price Total: <%= total_price %>
+        <br>
+      Weight Total: <%= total_weight %>
+        <br>
 <% end %>
-<!-- need method for weight, total weight, and total price. -->
