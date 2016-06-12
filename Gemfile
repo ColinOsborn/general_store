@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 # gem "paperclip", "~> 5.0.0.beta1"
 # gem "aws-sdk", "~> 2.3"
+gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'rails_12factor', group: :production
 

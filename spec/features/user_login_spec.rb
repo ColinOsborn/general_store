@@ -7,9 +7,11 @@ RSpec.feature "User logs in" do
 
     click_link "Sign Up"
 
-    fill_in "Username", with: user.username
+    fill_in "Name", with: user.username
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
+    fill_in "Confirmation", with: user.password
+    save_and_open_page
 
     click_button "Create Account"
 
@@ -33,7 +35,7 @@ RSpec.feature "User logs in" do
 
     click_link "Sign Up"
 
-    fill_in "Username", with: user.username
+    fill_in "Name", with: user.username
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
 

@@ -1,0 +1,32 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+media-body {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}”
