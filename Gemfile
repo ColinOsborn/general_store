@@ -42,6 +42,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'figaro'
+  gem 'paperclip'
+  gem 'aws-sdk', '< 2.0'
 end
 
 group :development do
