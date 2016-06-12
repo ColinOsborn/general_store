@@ -20,7 +20,7 @@ class Cart
   def cart_items
     contents.map do |item_id, quantity|
       item = Item.find(item_id)
-      CartItems.new(item, quantity)
+      CartItem.new(item, quantity)
     end
   end
 
