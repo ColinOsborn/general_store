@@ -19,6 +19,7 @@
       Quantity: <%= cart_item.quantity %>
       <br>
       Subtotal: <%= cart_item.subtotal_price %>
+      <%= link_to "Remove", cart_path(id: cart_item.id), method: :delete %>
 
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quantity

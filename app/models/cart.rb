@@ -35,4 +35,8 @@ class Cart
       sum + cart_item.subtotal_weight
     end
   end
+
+  def delete(item_id)
+    @contents.delete(item_id)
+  end
 end

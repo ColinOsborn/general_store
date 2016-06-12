@@ -24,6 +24,15 @@ class CartController < ApplicationController
     redirect_to '/cart'
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item_id = params[:id]
+    @cart.delete(item_id)
+    @cart = session[:cart]
+    flash[:success] = "Successfully removed #{item.title} from your cart"
+    redirect_to '/cart'
+  end
+
   def change_quantity
     session[:cart][item_id] = params[:id][:quantity]
   end
