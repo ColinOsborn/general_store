@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  include CartHelper
   def create
     @item = Item.find(params[:id])
     @cart.add_item(@item.id)
@@ -29,7 +30,7 @@ class CartController < ApplicationController
     item_id = params[:id]
     @cart.delete(item_id)
     @cart = session[:cart]
-    flash[:success] = "Successfully removed #{item.title} from your cart"
+    flash[:success] = 'Successfully removed ' + item_removed_from_cart(item) + ' from your cart'
     redirect_to '/cart'
   end
 
