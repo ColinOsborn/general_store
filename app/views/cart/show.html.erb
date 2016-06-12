@@ -5,41 +5,35 @@
 
     Cart items:
     <br>
-    <% @items.each do |item| %>
-      <%= image_tag item.image_path %>
+    <% @cart_items.each do |cart_item| %>
+      <%= image_tag cart_item.image_path %>
       <br>
-      Title: <%= item.title %>
+      Title: <%= cart_item.title %>
       <br>
-      Description: <%= item.description %>
+      Description: <%= cart_item.description %>
       <br>
-      Price: <%= item.price %>
+      Price: <%= cart_item.price %>
       <br>
-      Weight:<%= item.weight %>
+      Weight:<%= cart_item.weight %>
       <br>
-      Quantity: <%= @cart.contents[item.id.to_s] %>
-
-      Subtotal: <%= subtotal_price = item.price * cart.contents[item.id.to_s] %>
+      Quantity: <%= cart_item.quantity %>
+      <br>
+      Subtotal: <%= cart_item.subtotal_price %>
 
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Quantity
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
             <% quantity_range.each do |quantity| %>
-              <li><%= link_to quantity, cart_path(id: item.id, quantity: quantity), method: :patch %></li>
+              <li><%= link_to quantity, cart_path(id: cart_item.id, quantity: quantity), method: :patch %></li>
             <% end %>
           </ul>
         </div>
     <% end %>
 
-    <% total_price = @items.reduce(0) do |sum, item| %>
-      <% sum + item.price %>
-    <% end %>
-    <% total_weight = @items.reduce(0) do |sum, item| %>
-      <% sum + item.weight %>
-    <% end %>
       <br>
-      Price Total: <%= total_price %>
+      Total Price: <%= @cart.total_price %>
         <br>
-      Weight Total: <%= total_weight %>
+      Weight Total: <%= @cart.total_weight %>
         <br>
 <% end %>

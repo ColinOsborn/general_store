@@ -11,13 +11,12 @@ class CartController < ApplicationController
     if @cart.nil?
       flash[:no_items] = "Your cart is currently empty"
     else
-      @item_ids = @cart.contents.keys
-      @items = Item.where(id: @item_ids)
+      @cart_items = @cart.cart_items
+
     end
   end
 
   def update
-    # byebug
     item_id = params[:id]
     quantity = params[:quantity]
     @cart.update_quantity(item_id, quantity)

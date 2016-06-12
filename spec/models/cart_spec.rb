@@ -22,4 +22,13 @@ RSpec.describe Cart, type: :model do
 
     expect(7).to eq(cart.total)
   end
+
+  it ".total_price returns the total value of a cart" do
+    item = FactoryGirl.create(:item)
+    quantity = 2
+  end
+
+  it ".total_price returns the total weight of a cart" do
+
+  end
 end
