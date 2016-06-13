@@ -25,10 +25,14 @@ FactoryGirl.define do
     title { generate(:category_title) }
   end
 
+  sequence :email do |n|
+    "user#{n}@factory.com"
+  end
+
   factory :user do
     password "password"
     username "username"
-    email "email"
+    email
     role "0"
   end
 

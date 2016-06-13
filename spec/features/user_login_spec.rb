@@ -11,7 +11,6 @@ RSpec.feature "User logs in" do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     fill_in "Confirmation", with: user.password
-    save_and_open_page
 
     click_button "Create Account"
 
@@ -27,6 +26,26 @@ RSpec.feature "User logs in" do
       expect(page).to have_content("Welcome, #{user.username}")
       expect(page).to have_content(user.username)
       expect(page).to have_content(user.email)
+    end
+  end
+
+  scenario "with invalid credentials" do
+    visit root_path
+
+    click_link "Sign Up"
+
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    fill_in "Confirmation", with: user.password
+
+    click_button "Create Account"
+
+    expect(current_path).to eq(users_path)
+
+    within("nav") do
+      expect(page).to_not have_content("Logged in as #{user.username}")
+      expect(page).to have_content("Login")
+      expect(page).to_not have_content("Logout")
     end
   end
 

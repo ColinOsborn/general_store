@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true
   validates :password_digest, presence: true
-  validates :email, presence: true
+  validates :email, presence: true,
+            uniqueness: { case_sensitive: false }
 
   def set_default_role
     self.update(role: 0) unless self.role 

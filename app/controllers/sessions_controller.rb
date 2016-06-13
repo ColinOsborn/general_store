@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to "/dashboard/#{@user.id}"
+      redirect_to "/dashboard"
     else
-      flash[:alert] = "Invalid. Try Again."
+      flash.now[:alert] = "Invalid email/password combination. Try Again."
       render :new
     end
   end
