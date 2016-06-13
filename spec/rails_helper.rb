@@ -5,7 +5,11 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/rspec'
 require 'capybara/rails'
+require 'capybara/dsl'
+
+Capybara.asset_host = "http://localhost:3000"
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
