@@ -1,8 +1,5 @@
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+body {
+    background-image: url("http://psdmockups.s3.amazonaws.com/wp-content/uploads/2013/03/iPad-warm-wood-wallpaper.jpg");
 }
 
 img {
@@ -29,17 +26,4 @@ media-body {
   height: auto;
   max-height: 200px;
   overflow-x: hidden;
-}
-
-/* forms */
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing(border-box);
-}
-
-input {
-  height: auto !important;
 }
