@@ -16,5 +16,7 @@ RSpec.describe User, type: :model do
     it { expect(user_instance).to validate_presence_of(:username) }
     it { expect(user_instance).to validate_presence_of(:password_digest) }
     it { expect(user_instance).to validate_presence_of(:email) }
+    it { expect(user_instance).to validate_uniqueness_of(:email).case_insensitive }
   end
+
 end
