@@ -5,13 +5,11 @@
       <table class="table table-bordered table-striped">
         <th>Order Number</th>
         <th>User ID</th>
-        <th>Edit Order</th>
         <th></th>
         <% @orders.each do |order| %>
         <tr>
           <td> <%= order.id %> </td>
           <td> <%= order.user_id %>
-          <td> <%= link_to "edit", edit_admin_order_path(order) %>
           <td> <%= link_to "View Order", order_path(order) %></td>
         </tr>
         <% end %>

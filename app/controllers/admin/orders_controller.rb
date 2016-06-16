@@ -7,33 +7,14 @@ class Admin::OrdersController < Admin::BaseController
     @order = Order.find(params[:id])
   end
 
-  def edit
-    @order = Order.find(params[:id])
-  end
-
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      redirect_to order_path(@order)
+    if @order.update(status: params[:order_status])
+      flash[:success] = "Status has been successfully changed to #{@order.status}"
+      redirect_to admin_order_path(@order)
     else
       flash[:warning] = "Order cannot be updated"
+      redirect_to admin_order_path(@order)
     end
   end
-
-  def destroy
-    @order = Order.find(params[:id])
-    @cart.cart_items.each do |cart_item|
-      cart_item_id = cart_item.id
-      item = Item.find(cart_item_id)
-      item.stock = item.stock + cart_item.quantity.to_i
-      item.save
-    end
-  end
-
-  private
-
-  def order_params
-    params.require(:order).permit([:status])
-  end
-
 end
