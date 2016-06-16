@@ -20,7 +20,7 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
 
-  def destory
+  def destroy
     @order = Order.find(params[:id])
     @cart.cart_items.each do |cart_item|
       cart_item_id = cart_item.id

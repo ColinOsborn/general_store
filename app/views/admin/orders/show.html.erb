@@ -21,16 +21,12 @@
             <td> <%= order_item.item.price * order_item.item.price %> </td>
           </tr>
           <% end %>
-          <%= link_to "Cancel Order", order_path(@order), method: :delete %>
 
-          <div id="butts" class="dropdown">
-            <button class="btn btn-primary dropdown-toggle active" type="button" data-toggle="dropdown"> Change Status %>
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Completed", admin_order_path(@order, id: @order.id, status: "completed"), method: :patch %></li>
-                <li><%= link_to "Picked Up", admin_order_path(@order, id: @order.id, status: "picked up"), method: :patch %></li>
-                <li><%= link_to "Cancelled", admin_order_path(@order, id: @order.id, order: { status: "cancelled" }), method: :patch %></li>
-              </ul>
+          <%= select_tag(:order_status) do %>
+
+          <%= options_for_select(status_array) %>
+
+          <% end %>
         </thead>
       </table>
     </div>
