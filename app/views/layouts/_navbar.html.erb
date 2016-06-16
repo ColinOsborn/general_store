@@ -29,6 +29,9 @@
             <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
               <li class="navbar-text", id: "welcome">Logged in as <%= current_user.username %> </li>
+                <% if current_user.admin? %>
+                  <li><%= link_to "Admin Dashboard", admin_orders_path  %></li>
+                <% end %>
               <li><%= link_to "Logout", logout_path, method: :delete %></li>
               <% else %>
               <li><%= link_to "Login", login_path %></li>
