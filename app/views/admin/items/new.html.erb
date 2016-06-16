@@ -1,0 +1,28 @@
+<%= form_for [:admin, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+<br>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+<br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+<br>
+  <%= f.label :image_path %>
+  <%= f.text_field :image_path %>
+<br>
+
+  <%= f.select(:category_id) do %>
+
+  <%= options_for_select(@categories) %>
+
+  <% end %>
+<br>
+  <%= f.label :weight %>
+  <%= f.text_field :weight %>
+<br>
+  <%= f.label :stock %>
+  <%= f.text_field :stock %>
+<br>
+  <%= f.submit %>
+<% end %>
